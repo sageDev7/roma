@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudio ROMA | Abogados Penalistas</title>
+    <meta name="description" content="Estudio ROMA - Dr. Robaina, Dr. Oliva, Dra. Mansilla. Especializados en derecho penal. Asesoramiento legal profesional.">
+    
+    <meta property="og:image" content="https://i.imgur.com/VhtoDy3.png">
+    <link rel="icon" href="./favicon.png" type="image/png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-black: #000000;
+            --color-white: #ffffff;
+            --color-gray: #333333;
+            --color-lightgray: #f5f5f5;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--color-gray);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Crimson Text', serif;
+            font-weight: 600;
+        }
+
+        /* HEADER */
+        header {
+            background: transparent;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            background: var(--color-black);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 25px 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 80px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 45px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--color-white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--color-white);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+            position: relative;
+            width: 22px;
+            height: 18px;
+        }
+
+        .hamburger span {
+            width: 22px;
+            height: 2px;
+            background: var(--color-white);
+            transition: all 0.3s ease;
+            position: absolute;
+        }
+
+        .hamburger span:nth-child(1) {
+            top: 0;
+        }
+
+        .hamburger span:nth-child(2) {
+            top: 8px;
+        }
+
+        .hamburger span:nth-child(3) {
+            top: 16px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            top: 8px;
+            transform: rotate(45deg);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            top: 8px;
+            transform: rotate(-45deg);
+        }
+
+        .hamburger.active span {
+            background: var(--color-white) !important;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            background: var(--color-black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.pexels.com/photos/5668772/pexels-photo-5668772.jpeg?auto=compress&cs=tinysrgb&w=1920') center/cover no-repeat;
+            filter: grayscale(100%);
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 0 40px;
+        }
+
+        .hero-brand {
+            font-size: 62px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: var(--color-white);
+            margin-bottom: 30px;
+            line-height: 1.3;
+        }
+
+        .hero-divider {
+            width: 80px;
+            height: 2px;
+            background: var(--color-white);
+            margin: 0 auto 40px;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: rgba(255,255,255,0.9);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .hero-names {
+            font-size: 16px;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 50px;
+            font-weight: 300;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 18px 45px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            border: 2px solid transparent;
+        }
+
+        .btn-white {
+            background: var(--color-white);
+            color: var(--color-black);
+        }
+
+        .btn-white:hover {
+            background: transparent;
+            border-color: var(--color-white);
+            color: var(--color-white);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--color-white);
+            color: var(--color-white);
+        }
+
+        .btn-outline:hover {
+            background: var(--color-white);
+            color: var(--color-black);
+        }
+
+        /* ESPECIALIDAD */
+        .especialidad {
+            padding: 120px 60px;
+            background: var(--color-white);
+        }
+
+        .especialidad-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: center;
+        }
+
+        .especialidad-content h2 {
+            font-size: 52px;
+            color: var(--color-black);
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+
+        .especialidad-content p {
+            font-size: 17px;
+            color: #666;
+            line-height: 1.9;
+            margin-bottom: 20px;
+        }
+
+        .especialidad-highlight {
+            background: var(--color-lightgray);
+            padding: 35px;
+            margin-top: 40px;
+            border-left: 3px solid var(--color-black);
+        }
+
+        .especialidad-highlight p {
+            font-size: 19px;
+            font-style: italic;
+            color: var(--color-black);
+            margin: 0;
+        }
+
+        .especialidad-image {
+            position: relative;
+        }
+
+        .especialidad-image img {
+            width: 100%;
+            height: 550px;
+            object-fit: cover;
+            filter: grayscale(100%);
+        }
+
+        /* EQUIPO */
+        .equipo {
+            padding: 120px 60px;
+            background: var(--color-black);
+            color: var(--color-white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-header h2 {
+            font-size: 52px;
+            color: var(--color-white);
+            margin-bottom: 20px;
+        }
+
+        .section-header .divider {
+            width: 80px;
+            height: 2px;
+            background: var(--color-white);
+            margin: 30px auto;
+        }
+
+        .section-header p {
+            font-size: 17px;
+            color: rgba(255,255,255,0.7);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .equipo-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+        }
+
+        .abogado-card {
+            text-align: center;
+            padding: 50px 30px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s;
+        }
+
+        .abogado-card:hover {
+            background: rgba(255,255,255,0.05);
+            transform: translateY(-8px);
+        }
+
+        .abogado-inicial {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 30px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--color-white);
+        }
+
+        .abogado-inicial img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%);
+        }
+
+        .abogado-card h3 {
+            font-size: 28px;
+            color: var(--color-white);
+            margin-bottom: 10px;
+        }
+
+        .abogado-card .titulo {
+            font-size: 14px;
+            color: rgba(255,255,255,0.6);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+
+        .abogado-card p {
+            font-size: 15px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.7;
+        }
+
+        /* SERVICIOS */
+        .servicios {
+            padding: 120px 60px;
+            background: var(--color-white);
+        }
+
+        .servicios .section-header h2,
+        .servicios .section-header .divider {
+            color: var(--color-black);
+            background: var(--color-black);
+        }
+
+        .servicios .section-header p {
+            color: #666;
+        }
+
+        .servicios-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .servicio-item {
+            padding: 50px 45px;
+            background: var(--color-lightgray);
+            transition: all 0.3s;
+        }
+
+        .servicio-item:hover {
+            background: var(--color-black);
+            color: var(--color-white);
+        }
+
+        .servicio-item:hover h3,
+        .servicio-item:hover p {
+            color: var(--color-white);
+        }
+
+        .servicio-icon {
+            font-size: 42px;
+            color: var(--color-black);
+            margin-bottom: 25px;
+        }
+
+        .servicio-item:hover .servicio-icon {
+            color: var(--color-white);
+        }
+
+        .servicio-item h3 {
+            font-size: 26px;
+            color: var(--color-black);
+            margin-bottom: 15px;
+        }
+
+        .servicio-item p {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* CTA SECTION */
+        .cta-section {
+            padding: 100px 60px;
+            background: var(--color-black);
+            color: var(--color-white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.pexels.com/photos/5668858/pexels-photo-5668858.jpeg?auto=compress&cs=tinysrgb&w=1920') center/cover no-repeat;
+            filter: grayscale(100%);
+            opacity: 0.12;
+            z-index: 0;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-content h2 {
+            font-size: 48px;
+            color: var(--color-white);
+            margin-bottom: 30px;
+        }
+
+        .cta-content p {
+            font-size: 18px;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 45px;
+            line-height: 1.8;
+        }
+
+        /* CONTACTO */
+        .contacto {
+            padding: 120px 60px;
+            background: var(--color-white);
+        }
+
+        .contacto-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+        }
+
+        .contacto-form h3 {
+            font-size: 42px;
+            color: var(--color-black);
+            margin-bottom: 15px;
+        }
+
+        .contacto-form p {
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--color-black);
+            margin-bottom: 10px;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 16px 20px;
+            background: var(--color-lightgray);
+            border: 1px solid #e0e0e0;
+            color: var(--color-black);
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            background: var(--color-white);
+            border-color: var(--color-black);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 18px;
+            background: var(--color-black);
+            color: var(--color-white);
+            border: none;
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .form-submit:hover {
+            background: var(--color-gray);
+            transform: translateY(-2px);
+        }
+
+        .contacto-info h3 {
+            font-size: 42px;
+            color: var(--color-black);
+            margin-bottom: 40px;
+        }
+
+        .info-item {
+            margin-bottom: 35px;
+        }
+
+        .info-item h4 {
+            color: var(--color-black);
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .info-item p,
+        .info-item a {
+            color: #666;
+            font-size: 17px;
+            text-decoration: none;
+            line-height: 1.6;
+        }
+
+        .info-item a:hover {
+            color: var(--color-black);
+        }
+
+        /* MAP SECTION */
+        .map-section {
+            padding: 0;
+            background: var(--color-white);
+        }
+
+        .map-section iframe {
+            display: block;
+            width: 100%;
+            height: 450px;
+            filter: grayscale(100%);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--color-black);
+            color: rgba(255,255,255,0.8);
+            padding: 80px 60px 40px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto 50px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+        }
+
+        .footer-about .logo {
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .footer-about .logo img {
+            height: 144px;
+            width: auto;
+        }
+
+        .footer-about p {
+            line-height: 1.8;
+            margin-bottom: 25px;
+            color: rgba(255,255,255,0.7);
+            font-size: 15px;
+        }
+
+        .footer-links h4 {
+            color: var(--color-white);
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+            font-size: 15px;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-white);
+            transform: translateX(5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+            font-size: 14px;
+        }
+
+        .footer-bottom a {
+            color: var(--color-white);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+
+        /* WHATSAPP */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 65px;
+            height: 65px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            background: #20ba5a;
+            transform: scale(1.1);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 968px) {
+            nav {
+                padding: 20px 30px;
+                position: relative;
+                justify-content: center;
+            }
+
+            .logo img {
+                height: 88px;
+            }
+
+            .hamburger {
+                position: absolute;
+                right: 20px;
+                top: 50%;
+                transform: translateY(-50%);
+                display: flex;
+                z-index: 1002;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 100%;
+                max-width: 400px;
+                background: var(--color-black);
+                flex-direction: column;
+                justify-content: center;
+                padding: 40px;
+                transition: right 0.4s;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links a {
+                font-size: 18px;
+                color: var(--color-white) !important;
+            }
+
+            .hero-brand {
+                font-size: 32px;
+                letter-spacing: 2px;
+            }
+
+            .hero-divider {
+                width: 60px;
+            }
+
+            .hero-subtitle {
+                font-size: 14px;
+            }
+
+            .hero-names {
+                font-size: 14px;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                text-align: center;
+                justify-content: center;
+            }
+
+            .especialidad {
+                padding: 80px 30px;
+            }
+
+            .especialidad-container {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .especialidad-content {
+                text-align: center;
+            }
+
+            .especialidad-content h2 {
+                font-size: 36px;
+            }
+
+            .especialidad-image img {
+                height: 400px;
+            }
+
+            .equipo,
+            .servicios,
+            .contacto {
+                padding: 80px 30px;
+            }
+
+            .section-header h2 {
+                font-size: 36px;
+            }
+
+            .equipo-grid,
+            .servicios-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .contacto-container {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .contacto-form,
+            .contacto-info {
+                text-align: center;
+            }
+
+            .contacto-form h3,
+            .contacto-info h3 {
+                font-size: 32px;
+            }
+
+            .form-group label {
+                text-align: center;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                text-align: center;
+            }
+
+            .form-group input::placeholder,
+            .form-group textarea::placeholder {
+                text-align: center;
+            }
+
+            .info-item {
+                text-align: center;
+            }
+
+            .cta-section {
+                padding: 80px 30px;
+            }
+
+            .cta-content h2 {
+                font-size: 36px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .footer-about .logo img {
+                height: 108px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header id="header">
+        <nav>
+            <div class="logo">
+                <img src="./logo.png" alt="Estudio ROMA">
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#especialidad">Especialidad</a></li>
+                <li><a href="#equipo">Equipo</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <p class="hero-subtitle">ROMA - Estudio Jurídico</p>
+            <h1 class="hero-brand">EXPERIENCIA LEGAL<br>SIN COMPLICACIONES</h1>
+            <div class="hero-divider"></div>
+            <p class="hero-names">Dr. Robaina · Dr. Oliva · Dra. Mansilla</p>
+            <div class="hero-cta">
+                <a href="#contacto" class="btn btn-white">
+                    <i class="fas fa-gavel"></i>
+                    Consultá Ahora
+                </a>
+                <a href="#especialidad" class="btn btn-outline">
+                    Conocé más
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ESPECIALIDAD -->
+    <section class="especialidad" id="especialidad">
+        <div class="especialidad-container">
+            <div class="especialidad-content">
+                <h2>Derecho Penal</h2>
+                <p>Especializados en defensa penal, brindamos asesoramiento integral en todas las etapas del proceso. Nuestro equipo cuenta con amplia experiencia en la protección de los derechos de nuestros clientes.</p>
+                <p>Si bien nuestra especialidad es el derecho penal, atendemos consultas sobre cualquier rama del derecho, ofreciendo un servicio profesional y personalizado.</p>
+                <div class="especialidad-highlight">
+                    <p>Tu defensa es nuestra prioridad. Trabajamos con dedicación y profesionalismo en cada caso.</p>
+                </div>
+            </div>
+            <div class="especialidad-image">
+                <img src="https://images.pexels.com/photos/5668473/pexels-photo-5668473.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Derecho Penal">
+            </div>
+        </div>
+    </section>
+
+    <!-- EQUIPO -->
+    <section class="equipo" id="equipo">
+        <div class="section-header">
+            <h2>Nuestro Equipo</h2>
+            <div class="divider"></div>
+            <p>Profesionales comprometidos con la excelencia en el asesoramiento legal</p>
+        </div>
+        <div class="equipo-grid">
+            <div class="abogado-card">
+                <div class="abogado-inicial">
+                    <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?w=300&q=80" alt="Dr. Robaina">
+                </div>
+                <h3>Dr. Robaina</h3>
+                <p class="titulo">Socio Fundador</p>
+                <p>Especialista en defensa penal con sólida formación en derecho procesal.</p>
+            </div>
+
+            <div class="abogado-card">
+                <div class="abogado-inicial">
+                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&q=80" alt="Dr. Oliva">
+                </div>
+                <h3>Dr. Oliva</h3>
+                <p class="titulo">Socio</p>
+                <p>Experto en estrategia legal y litigación en materia penal.</p>
+            </div>
+
+            <div class="abogado-card">
+                <div class="abogado-inicial">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&q=80" alt="Dra. Mansilla">
+                </div>
+                <h3>Dra. Mansilla</h3>
+                <p class="titulo">Socia</p>
+                <p>Profesional dedicada a la protección de los derechos de los clientes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section class="servicios">
+        <div class="section-header">
+            <h2>Nuestros Servicios</h2>
+            <div class="divider"></div>
+            <p>Asesoramiento legal integral en diversas áreas del derecho</p>
+        </div>
+        <div class="servicios-grid">
+            <div class="servicio-item">
+                <div class="servicio-icon">
+                    <i class="fas fa-gavel"></i>
+                </div>
+                <h3>Derecho Penal</h3>
+                <p>Defensa penal, querellas, recursos de apelación y asesoramiento en todas las etapas del proceso.</p>
+            </div>
+
+            <div class="servicio-item">
+                <div class="servicio-icon">
+                    <i class="fas fa-balance-scale"></i>
+                </div>
+                <h3>Defensa en Juicio</h3>
+                <p>Representación legal profesional en procesos judiciales, garantizando tus derechos.</p>
+            </div>
+
+            <div class="servicio-item">
+                <div class="servicio-icon">
+                    <i class="fas fa-file-contract"></i>
+                </div>
+                <h3>Asesoramiento Legal</h3>
+                <p>Consultas y orientación en diversas ramas del derecho para proteger tus intereses.</p>
+            </div>
+
+            <div class="servicio-item">
+                <div class="servicio-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Protección de Derechos</h3>
+                <p>Defensa integral de tus garantías constitucionales y derechos fundamentales.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>¿Necesitás Asesoramiento Legal?</h2>
+            <p>Contactanos para una consulta. Estamos listos para ayudarte con profesionalismo y dedicación.</p>
+            <a href="#contacto" class="btn btn-white">
+                <i class="fas fa-envelope"></i>
+                Consultá Ahora
+            </a>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="contacto" id="contacto">
+        <div class="contacto-container">
+            <div class="contacto-form">
+                <h3>Contacto</h3>
+                <p>Completá el formulario y nos pondremos en contacto a la brevedad.</p>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="Tu teléfono" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" placeholder="Contanos tu consulta..." required></textarea>
+                    </div>
+                    <button type="submit" class="form-submit">Enviar Consulta</button>
+                </form>
+            </div>
+
+            <div class="contacto-info">
+                <h3>Información</h3>
+                
+                <div class="info-item">
+                    <h4>Teléfono</h4>
+                    <a href="tel:+549XXXXXXXXXX">+54 9 XXXX-XXXX</a>
+                </div>
+
+                <div class="info-item">
+                    <h4>Email</h4>
+                    <a href="mailto:contacto@estudioroma.com.ar">contacto@estudioroma.com.ar</a>
+                </div>
+
+                <div class="info-item">
+                    <h4>Horario</h4>
+                    <p>Lunes a Viernes<br>9:00 a 18:00 hs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAPA -->
+    <section class="map-section">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52561.88295188993!2d-58.445868!3d-34.603722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca3b4ef90cbd%3A0xa0b3812e88e88e8!2sBuenos%20Aires%2C%20CABA!5e0!3m2!1ses!2sar!4v1234567890123!5m2!1ses!2sar"
+            width="100%" 
+            height="450" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-about">
+                <div class="logo">
+                    <img src="./logo.png" alt="Estudio ROMA">
+                </div>
+                <p>Estudio jurídico especializado en derecho penal. Dr. Robaina, Dr. Oliva, Dra. Mansilla. Profesionales comprometidos con la defensa de tus derechos.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Enlaces</h4>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#especialidad">Especialidad</a></li>
+                    <li><a href="#equipo">Equipo</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Servicios</h4>
+                <ul>
+                    <li><a href="#servicios">Derecho Penal</a></li>
+                    <li><a href="#servicios">Defensa en Juicio</a></li>
+                    <li><a href="#servicios">Asesoramiento</a></li>
+                    <li><a href="#servicios">Consultas</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Estudio ROMA - Todos los derechos reservados<br>Desarrollado por <a href="https://www.instagram.com/sageedev/" target="_blank">@sageeDev</a></p>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP -->
+    <a href="https://wa.me/549XXXXXXXXXX?text=Hola, necesito asesoramiento legal" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // MENU TOGGLE
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // HEADER SCROLL
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // FORM SUBMIT
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nombre = document.getElementById('nombre').value;
+            const mensaje = document.getElementById('mensaje').value;
+            const whatsappURL = `https://wa.me/549XXXXXXXXXX?text=Hola, mi nombre es ${nombre}. ${mensaje}`;
+            window.open(whatsappURL, '_blank');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
